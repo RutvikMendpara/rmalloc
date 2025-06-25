@@ -1,0 +1,31 @@
+# Build artifacts
+cmake-build-*/
+build/
+out/
+*.o
+*.obj
+*.so
+*.a
+*.dll
+*.exe
+*.log
+
+# CLion project files
+.idea/
+cmake-build-debug/
+cmake-build-release/
+*.iml
+
+# CMake-generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+conanbuildinfo.*
+conaninfo.txt
+.graph_info.json
