@@ -5,12 +5,14 @@
 
 class Rmalloc {
 public:
+    // Core API
     void* allocate(std::size_t size);
     void* allocateZeroed(std::size_t count, std::size_t size);
     void* reallocate(void* ptr, std::size_t size);
     void  deallocate(void* ptr);
     ~Rmalloc();
 
+private:
     struct BlockMeta {
         std::size_t size;
         bool free;
@@ -24,6 +26,7 @@ public:
 
     BlockMeta* head = nullptr;
 
+    // Internal helpers
     BlockMeta* findFreeBlock(BlockMeta*& last, std::size_t size);
     BlockMeta* requestSpace(BlockMeta* last, std::size_t size);
     BlockMeta* getBlockPtr(void* ptr);

@@ -3,9 +3,8 @@
 #include <cstring>
 #include <cassert>
 
-using BlockMeta = Rmalloc::BlockMeta;
 
-BlockMeta* Rmalloc::findFreeBlock(BlockMeta*& last, std::size_t size) {
+Rmalloc::BlockMeta* Rmalloc::findFreeBlock(BlockMeta*& last, std::size_t size) {
     BlockMeta* current = head;
     while (current && !(current->free && current->size >= size)) {
         last = current;
@@ -14,7 +13,7 @@ BlockMeta* Rmalloc::findFreeBlock(BlockMeta*& last, std::size_t size) {
     return current;
 }
 
-BlockMeta* Rmalloc::requestSpace(BlockMeta* last, std::size_t size) {
+Rmalloc::BlockMeta* Rmalloc::requestSpace(BlockMeta* last, std::size_t size) {
     void* raw = std::malloc(sizeof(BlockMeta) + size);
     if (!raw) return nullptr;
 
@@ -31,7 +30,7 @@ BlockMeta* Rmalloc::requestSpace(BlockMeta* last, std::size_t size) {
     return block;
 }
 
-BlockMeta* Rmalloc::getBlockPtr(void* userPtr) {
+Rmalloc::BlockMeta* Rmalloc::getBlockPtr(void* userPtr) {
     return static_cast<BlockMeta*>(userPtr) - 1;
 }
 
