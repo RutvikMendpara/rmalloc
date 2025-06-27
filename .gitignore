@@ -29,3 +29,4 @@ Thumbs.db
 conanbuildinfo.*
 conaninfo.txt
 .graph_info.json
+rmalloc_test
