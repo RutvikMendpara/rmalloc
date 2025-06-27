@@ -1,16 +1,18 @@
-# Custom Memory Allocator (Unix, C++)
+# Custom Memory Allocator (C++)
 
-A low-level memory allocator built from scratch for Unix-like systems in C++. Supports:
+A basic memory allocator written in C++ for Unix systems.
 
-- First-fit allocation strategy
-- Block splitting and coalescing
-- Page-level memory management via `mmap`
-- LD_PRELOAD-compatible replacement for `malloc` and `free`
-- Arena allocator for fixed-size allocations
+### Features
 
-### Build & Run
+* First-fit allocation
+* Manual `malloc`, `calloc`, `realloc`, and `free`
+* Metadata tracking with free list
+* Debug-friendly (asserts + magic headers)
+
+### Build
 
 ```bash
 cmake -B build
 cmake --build build
-./build/memory_allocator_test
+./build/test_main  # Runs the test from test/main.cpp
+```

@@ -4,6 +4,7 @@
 #include <iostream>
 
 int main() {
+    
     Rmalloc allocator;
 
     // Allocate 32 bytes

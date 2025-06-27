@@ -13,6 +13,7 @@ public:
     ~Rmalloc();
 
 private:
+
     struct BlockMeta {
         std::size_t size;
         bool free;

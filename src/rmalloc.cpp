@@ -6,7 +6,9 @@
 
 Rmalloc::BlockMeta* Rmalloc::findFreeBlock(BlockMeta*& last, std::size_t size) {
     BlockMeta* current = head;
-    while (current && !(current->free && current->size >= size)) {
+    while (current ) {
+        if (current->free && current->size >= size)
+            break;
         last = current;
         current = current->next;
     }
